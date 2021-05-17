@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		8E59C312264E8E2700A22516 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E59C311264E8E2700A22516 /* main.cpp */; };
+		8E59C31C26520D2400A22516 /* Motor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E59C31A26520D2400A22516 /* Motor.cpp */; };
+		8E59C322265218FB00A22516 /* GlobalPack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E59C320265218FB00A22516 /* GlobalPack.cpp */; };
+		8E59C325265219D500A22516 /* IOPack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E59C323265219D500A22516 /* IOPack.cpp */; };
+		8E59C329265269A500A22516 /* LogPack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E59C327265269A500A22516 /* LogPack.cpp */; };
+		8E59C330265286D300A22516 /* PackageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E59C32F265286D300A22516 /* PackageManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +30,20 @@
 /* Begin PBXFileReference section */
 		8E59C30E264E8E2700A22516 /* v8-sample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "v8-sample"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E59C311264E8E2700A22516 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8E59C31926520C0200A22516 /* sample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sample.h; sourceTree = "<group>"; };
+		8E59C31A26520D2400A22516 /* Motor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Motor.cpp; sourceTree = "<group>"; };
+		8E59C31B26520D2400A22516 /* Motor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Motor.hpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		8E59C320265218FB00A22516 /* GlobalPack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GlobalPack.cpp; sourceTree = "<group>"; };
+		8E59C321265218FB00A22516 /* GlobalPack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GlobalPack.hpp; sourceTree = "<group>"; };
+		8E59C323265219D500A22516 /* IOPack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IOPack.cpp; sourceTree = "<group>"; };
+		8E59C324265219D500A22516 /* IOPack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IOPack.hpp; sourceTree = "<group>"; };
+		8E59C32626521A0E00A22516 /* BasePack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasePack.h; sourceTree = "<group>"; };
+		8E59C327265269A500A22516 /* LogPack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LogPack.cpp; sourceTree = "<group>"; };
+		8E59C328265269A500A22516 /* LogPack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LogPack.hpp; sourceTree = "<group>"; };
+		8E59C32B26527E1F00A22516 /* PackageManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PackageManager.hpp; sourceTree = "<group>"; };
+		8E59C32C265280F600A22516 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		8E59C32D2652813400A22516 /* Packages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Packages.h; sourceTree = "<group>"; };
+		8E59C32F265286D300A22516 /* PackageManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PackageManager.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +76,31 @@
 		8E59C310264E8E2700A22516 /* v8-sample */ = {
 			isa = PBXGroup;
 			children = (
+				8E59C31826520BCC00A22516 /* Sample */,
 				8E59C311264E8E2700A22516 /* main.cpp */,
 			);
 			path = "v8-sample";
+			sourceTree = "<group>";
+		};
+		8E59C31826520BCC00A22516 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				8E59C31926520C0200A22516 /* sample.h */,
+				8E59C31A26520D2400A22516 /* Motor.cpp */,
+				8E59C31B26520D2400A22516 /* Motor.hpp */,
+				8E59C320265218FB00A22516 /* GlobalPack.cpp */,
+				8E59C321265218FB00A22516 /* GlobalPack.hpp */,
+				8E59C323265219D500A22516 /* IOPack.cpp */,
+				8E59C324265219D500A22516 /* IOPack.hpp */,
+				8E59C32626521A0E00A22516 /* BasePack.h */,
+				8E59C327265269A500A22516 /* LogPack.cpp */,
+				8E59C328265269A500A22516 /* LogPack.hpp */,
+				8E59C32C265280F600A22516 /* Macro.h */,
+				8E59C32D2652813400A22516 /* Packages.h */,
+				8E59C32B26527E1F00A22516 /* PackageManager.hpp */,
+				8E59C32F265286D300A22516 /* PackageManager.cpp */,
+			);
+			path = Sample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +159,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E59C330265286D300A22516 /* PackageManager.cpp in Sources */,
 				8E59C312264E8E2700A22516 /* main.cpp in Sources */,
+				8E59C329265269A500A22516 /* LogPack.cpp in Sources */,
+				8E59C322265218FB00A22516 /* GlobalPack.cpp in Sources */,
+				8E59C325265219D500A22516 /* IOPack.cpp in Sources */,
+				8E59C31C26520D2400A22516 /* Motor.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +291,7 @@
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../v8-lib/include/**";
 				OTHER_LDFLAGS = "${SRCROOT}/../v8-lib/libv8_monolith.a";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Sample";
 			};
 			name = Debug;
 		};
@@ -257,6 +304,7 @@
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../v8-lib/include/**";
 				OTHER_LDFLAGS = "${SRCROOT}/../v8-lib/libv8_monolith.a";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Sample";
 			};
 			name = Release;
 		};

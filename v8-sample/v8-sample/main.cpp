@@ -2,10 +2,17 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "Sample/sample.h"
 #include "libplatform/libplatform.h"
 #include "v8.h"
 
 int main(int argc, char* argv[]) {
+  Sample::Motor motor = Sample::Motor();
+  motor.Initialize(argv[0], argv[0]);
+  motor.Startup(argc, argv);
+
+  return 0;
+
   // Initialize V8.
   v8::V8::InitializeICUDefaultLocation(argv[0]);
   v8::V8::InitializeExternalStartupData(argv[0]);
