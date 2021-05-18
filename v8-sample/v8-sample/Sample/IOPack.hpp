@@ -8,6 +8,8 @@
 #ifndef IOPack_hpp
 #define IOPack_hpp
 
+#include <v8.h>
+#include <cstdio>
 #include "BasePack.h"
 
 namespace Sample {
@@ -17,6 +19,8 @@ class IOPack : public BasePack {
   ~IOPack();
 
   static IOPack* New(v8::Isolate* isolate);
+
+  char* readFile(const char* path);
 };
 
 }  // namespace Sample

@@ -19,25 +19,31 @@ void Motor::PrintInfo() {
   std::cout << SVERSION << std::endl;
   std::cout << "Usage: sample [ script.js ]" << std::endl;
   std::cout << "\nVM's info" << std::endl;
-  //    std::cout << "\tstack limit: " << params.constraints.stack_limit() <<
+  //    std::cout << "\tstack limit: " << params.constraints.stack_limit()
+  //    <<
   //    std::endl;
   std::cout << "\tcode range size in bytes: "
-            << params.constraints.code_range_size() << std::endl;
+            << create_params.constraints.code_range_size() << std::endl;
   std::cout << "\tmax old generation size in bytes: "
-            << params.constraints.max_old_generation_size_in_bytes()
+            << create_params.constraints.max_old_generation_size_in_bytes()
             << std::endl;
   std::cout << "\tmax young generation size in bytes: "
-            << params.constraints.max_young_generation_size_in_bytes()
+            << create_params.constraints.max_young_generation_size_in_bytes()
             << std::endl;
   std::cout << "\tinitial old generation size in bytes"
-            << params.constraints.initial_old_generation_size_in_bytes()
+            << create_params.constraints.initial_old_generation_size_in_bytes()
             << std::endl;
-  std::cout << "\tinitial young generation size in bytes: "
-            << params.constraints.initial_young_generation_size_in_bytes()
-            << std::endl;
+  std::cout
+      << "\tinitial young generation size in bytes: "
+      << create_params.constraints.initial_young_generation_size_in_bytes()
+      << std::endl;
 }
 
-void Motor::InitPack() {
+void Motor::RunScript(const char* jsFilePath) {
+  char* js = PackageManager::GetInstance()->GetIOPack()->readFile(jsFilePath);
+  if (js == NULL) {
+    return;
+  }
   auto global = GlobalPack::New(isolate);
   v8::Local<v8::Context> context =
       v8::Context::New(isolate, NULL, global->GetGlobalObject());
@@ -46,9 +52,15 @@ void Motor::InitPack() {
   PackageManager::GetInstance()->SetGlobalPack(global);
   PackageManager::GetInstance()->SetIOPack(IOPack::New(isolate));
   PackageManager::GetInstance()->SetLogPack(LogPack::New(isolate));
-}
 
-void Motor::RunScript(const char* jsFilePath) {}
+  v8::Local<v8::String> source =
+      v8::String::NewFromUtf8(isolate, js, v8::NewStringType::kNormal)
+          .ToLocalChecked();
+
+  v8::Local<v8::Script> script =
+      v8::Script::Compile(context, source).ToLocalChecked();
+  script->Run(context);
+}
 
 //--------------------------- public ---------------------------
 
@@ -66,9 +78,8 @@ void Motor::Initialize(const char* icuExecPath,
   }
 
   if (platform == nullptr) {
-    std::unique_ptr<v8::Platform> curPlatform =
-        v8::platform::NewDefaultPlatform();
-    v8::V8::InitializePlatform(curPlatform.get());
+    platformPtr = v8::platform::NewDefaultPlatform();
+    v8::V8::InitializePlatform(platformPtr.get());
   } else {
     v8::V8::InitializePlatform(platform);
   }
@@ -81,12 +92,13 @@ void Motor::Startup(int argc, char* argv[]) {
     return;
   }
 
-  params.array_buffer_allocator =
+  create_params.array_buffer_allocator =
       v8::ArrayBuffer::Allocator::NewDefaultAllocator();
-  isolate = v8::Isolate::New(params);
+
+  isolate = v8::Isolate::New(create_params);
+
   v8::Isolate::Scope isolate_scope(isolate);
   v8::HandleScope handle_scope(isolate);
-  InitPack();
   RunScript(argv[1]);
   return;
 }
@@ -95,5 +107,5 @@ void Motor::Shutdown() {
   isolate->Dispose();
   v8::V8::Dispose();
   v8::V8::ShutdownPlatform();
-  delete params.array_buffer_allocator;
+  //  delete create_params.array_buffer_allocator;
 }

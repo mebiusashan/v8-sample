@@ -11,15 +11,19 @@
 #include "libplatform/libplatform.h"
 #include "v8.h"
 
+// extern v8::Isolate::CreateParams aacreate_params;
 namespace Sample {
 
 class Motor {
  private:
-  v8::Isolate* isolate;
-  v8::Isolate::CreateParams params;
+  v8::Isolate* isolate;  // = nullptr;
+
+  std::unique_ptr<v8::Platform> platformPtr;
+  v8::Isolate::CreateParams create_params;
+
   //  std::vector<BasePack*> packs;
   void PrintInfo();
-  void InitPack();
+  //  void InitPack();
   void RunScript(const char* jsFilePath);
 
  public:

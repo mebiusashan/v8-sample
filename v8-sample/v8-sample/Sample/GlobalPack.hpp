@@ -14,9 +14,8 @@ namespace Sample {
 class GlobalPack : public BasePack {
  private:
   v8::Local<v8::ObjectTemplate> global;
-  void version(const v8::FunctionCallbackInfo<v8::Value>& args);
-  void v8version(const v8::FunctionCallbackInfo<v8::Value>& args);
-  void print();
+  //  static void version(const v8::FunctionCallbackInfo<v8::Value>& args);
+  //  static void v8version(const v8::FunctionCallbackInfo<v8::Value>& args);
 
  public:
   virtual void Initialize(v8::Isolate* isolate);
