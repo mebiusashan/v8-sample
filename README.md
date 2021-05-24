@@ -3,9 +3,17 @@
 ## JavaScript API
  
 ### global
-- version()
-- v8version()
-- print()
+- version
+- v8version
+
+### log
+- info
+- log
+- debug
+- error
+- warn
+- succ
+
 
 ### io
 - readfile(filePath)

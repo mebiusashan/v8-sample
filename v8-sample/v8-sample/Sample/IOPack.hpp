@@ -21,6 +21,10 @@ class IOPack : public BasePack {
   static IOPack* New(v8::Isolate* isolate);
 
   char* readFile(const char* path);
+
+ private:
+  static void readFile(const v8::FunctionCallbackInfo<v8::Value>& args);
+  static void writeFile(const v8::FunctionCallbackInfo<v8::Value>& args);
 };
 
 }  // namespace Sample
