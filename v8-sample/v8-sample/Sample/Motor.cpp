@@ -59,7 +59,14 @@ void Motor::RunScript(const char* jsFilePath) {
 
   v8::Local<v8::Script> script =
       v8::Script::Compile(context, source).ToLocalChecked();
-  script->Run(context);
+
+  v8::TryCatch trycatch(isolate);
+  v8::MaybeLocal<v8::Value> v = script->Run(context);
+  if (v.IsEmpty()) {
+    v8::Local<v8::Value> exception = trycatch.Exception();
+    v8::String::Utf8Value exception_str(isolate, exception);
+    std::cout << *exception_str << std::endl;
+  }
 }
 
 //--------------------------- public ---------------------------

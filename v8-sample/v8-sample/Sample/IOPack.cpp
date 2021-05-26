@@ -11,33 +11,37 @@
 using namespace Sample;
 
 void IOPack::readFile(const v8::FunctionCallbackInfo<v8::Value>& args) {
-    v8::String::Utf8Value str(args.GetIsolate(), args[0]);
-    const char* path = *str;
-    FILE* file = fopen(path, "r");
-    if (!file) {
-      std::perror("File opening failed");
-        args.GetReturnValue().Set(v8::String::NewFromUtf8(args.GetIsolate(), "").ToLocalChecked());
-    }
-    fseek(file, 0, SEEK_END);
-    size_t size = ftell(file);
-    rewind(file);
-    char* chars = new char[size + 1];
-    for (size_t i = 0; i < size;) {
-      i += fread(&chars[i], 1, size - i, file);
-      fclose(file);
-    }
-    args.GetReturnValue().Set(v8::String::NewFromUtf8(args.GetIsolate(), chars).ToLocalChecked());
+  v8::String::Utf8Value str(args.GetIsolate(), args[0]);
+  const char* path = *str;
+  FILE* file = fopen(path, "r");
+  if (!file) {
+    auto isolate = args.GetIsolate();
+    isolate->ThrowException(v8::Exception::Error(
+        v8::String::NewFromUtf8(isolate, "File opening failed")
+            .ToLocalChecked()));
+    return;
+  }
+  fseek(file, 0, SEEK_END);
+  size_t size = ftell(file);
+  rewind(file);
+  char* chars = new char[size + 1];
+  for (size_t i = 0; i < size;) {
+    i += fread(&chars[i], 1, size - i, file);
+    fclose(file);
+  }
+  args.GetReturnValue().Set(
+      v8::String::NewFromUtf8(args.GetIsolate(), chars).ToLocalChecked());
 }
 
 void IOPack::writeFile(const v8::FunctionCallbackInfo<v8::Value>& args) {
-    v8::String::Utf8Value pathstr(args.GetIsolate(), args[0]);
-    const char* path = *pathstr;
-    v8::String::Utf8Value strs(args.GetIsolate(), args[1]);
-    const char* str = *strs;
-    FILE* file = fopen(path, "w+");
-    fseek(file, 0, SEEK_END);
-    fwrite(str, 1, strs.length(),  file);
-    fclose(file);
+  v8::String::Utf8Value pathstr(args.GetIsolate(), args[0]);
+  const char* path = *pathstr;
+  v8::String::Utf8Value strs(args.GetIsolate(), args[1]);
+  const char* str = *strs;
+  FILE* file = fopen(path, "w+");
+  fseek(file, 0, SEEK_END);
+  fwrite(str, 1, strs.length(), file);
+  fclose(file);
 }
 
 //--------------------------- public ---------------------------
