@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:v8-sample/v8-sample/Sample/../../../net/net.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:v8-sample/v8-sample.xcodeproj">
    </FileRef>
 </Workspace>
