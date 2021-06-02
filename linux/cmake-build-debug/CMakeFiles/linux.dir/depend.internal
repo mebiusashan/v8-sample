@@ -13,9 +13,13 @@ CMakeFiles/linux.dir/syncframe/Context.cpp.o
  /home/mebius/projects/v8-sample/linux/syncframe/Macros.h
  /home/mebius/projects/v8-sample/linux/syncframe/NetHandler.hpp
  /home/mebius/projects/v8-sample/linux/syncframe/NetHelper.hpp
+ /home/mebius/projects/v8-sample/linux/syncframe/message.pb.h
 CMakeFiles/linux.dir/syncframe/NetHandler.cpp.o
  /home/mebius/projects/v8-sample/linux/syncframe/NetHandler.cpp
  /home/mebius/projects/v8-sample/linux/syncframe/NetHandler.hpp
 CMakeFiles/linux.dir/syncframe/NetHelper.cpp.o
  /home/mebius/projects/v8-sample/linux/syncframe/NetHelper.cpp
  /home/mebius/projects/v8-sample/linux/syncframe/NetHelper.hpp
+CMakeFiles/linux.dir/syncframe/message.pb.cc.o
+ /home/mebius/projects/v8-sample/linux/syncframe/message.pb.cc
+ /home/mebius/projects/v8-sample/linux/syncframe/message.pb.h

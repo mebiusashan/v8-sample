@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/mebius/projects/v8-sample/linux/syncframe/Context.cpp" "/home/mebius/projects/v8-sample/linux/cmake-build-debug/CMakeFiles/linux.dir/syncframe/Context.cpp.o"
   "/home/mebius/projects/v8-sample/linux/syncframe/NetHandler.cpp" "/home/mebius/projects/v8-sample/linux/cmake-build-debug/CMakeFiles/linux.dir/syncframe/NetHandler.cpp.o"
   "/home/mebius/projects/v8-sample/linux/syncframe/NetHelper.cpp" "/home/mebius/projects/v8-sample/linux/cmake-build-debug/CMakeFiles/linux.dir/syncframe/NetHelper.cpp.o"
+  "/home/mebius/projects/v8-sample/linux/syncframe/message.pb.cc" "/home/mebius/projects/v8-sample/linux/cmake-build-debug/CMakeFiles/linux.dir/syncframe/message.pb.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

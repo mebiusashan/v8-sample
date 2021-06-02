@@ -103,6 +103,9 @@
 		<Unit filename="/home/mebius/projects/v8-sample/linux/syncframe/NetHelper.hpp">
 			<Option target="linux"/>
 		</Unit>
+		<Unit filename="/home/mebius/projects/v8-sample/linux/syncframe/message.pb.cc">
+			<Option target="linux"/>
+		</Unit>
 		<Unit filename="/home/mebius/projects/v8-sample/linux/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

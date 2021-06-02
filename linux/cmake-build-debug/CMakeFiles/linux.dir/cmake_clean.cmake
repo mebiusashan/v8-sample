@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/linux.dir/syncframe/Context.cpp.o"
   "CMakeFiles/linux.dir/syncframe/NetHandler.cpp.o"
   "CMakeFiles/linux.dir/syncframe/NetHelper.cpp.o"
+  "CMakeFiles/linux.dir/syncframe/message.pb.cc.o"
   "linux"
   "linux.pdb"
 )

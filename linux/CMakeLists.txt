@@ -8,4 +8,4 @@ aux_source_directory(./syncframe SRC_LIST)
 
 add_executable(linux ${SRC_LIST})
 
-target_link_libraries(linux pthread ssl crypto)
+target_link_libraries(linux pthread ssl crypto protobuf)

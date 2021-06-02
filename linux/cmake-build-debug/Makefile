@@ -250,6 +250,33 @@ syncframe/NetHelper.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/linux.dir/build.make CMakeFiles/linux.dir/syncframe/NetHelper.cpp.s
 .PHONY : syncframe/NetHelper.cpp.s
 
+syncframe/message.pb.o: syncframe/message.pb.cc.o
+
+.PHONY : syncframe/message.pb.o
+
+# target to build an object file
+syncframe/message.pb.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/linux.dir/build.make CMakeFiles/linux.dir/syncframe/message.pb.cc.o
+.PHONY : syncframe/message.pb.cc.o
+
+syncframe/message.pb.i: syncframe/message.pb.cc.i
+
+.PHONY : syncframe/message.pb.i
+
+# target to preprocess a source file
+syncframe/message.pb.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/linux.dir/build.make CMakeFiles/linux.dir/syncframe/message.pb.cc.i
+.PHONY : syncframe/message.pb.cc.i
+
+syncframe/message.pb.s: syncframe/message.pb.cc.s
+
+.PHONY : syncframe/message.pb.s
+
+# target to generate assembly for a file
+syncframe/message.pb.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/linux.dir/build.make CMakeFiles/linux.dir/syncframe/message.pb.cc.s
+.PHONY : syncframe/message.pb.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -271,6 +298,9 @@ help:
 	@echo "... syncframe/NetHelper.o"
 	@echo "... syncframe/NetHelper.i"
 	@echo "... syncframe/NetHelper.s"
+	@echo "... syncframe/message.pb.o"
+	@echo "... syncframe/message.pb.i"
+	@echo "... syncframe/message.pb.s"
 .PHONY : help
 
 

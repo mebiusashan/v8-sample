@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/linux.dir/main.cpp.o CMakeFiles/linux.dir/syncframe/Context.cpp.o CMakeFiles/linux.dir/syncframe/NetHandler.cpp.o CMakeFiles/linux.dir/syncframe/NetHelper.cpp.o -o linux  -lpthread -lssl -lcrypto 
+/usr/bin/c++ -g CMakeFiles/linux.dir/main.cpp.o CMakeFiles/linux.dir/syncframe/Context.cpp.o CMakeFiles/linux.dir/syncframe/NetHandler.cpp.o CMakeFiles/linux.dir/syncframe/NetHelper.cpp.o CMakeFiles/linux.dir/syncframe/message.pb.cc.o -o linux  -lpthread -lssl -lcrypto -lprotobuf 

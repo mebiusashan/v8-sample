@@ -6,6 +6,7 @@
 //
 
 #include "Context.hpp"
+#include "message.pb.h"
 
 #include "Macros.h"
 
@@ -46,9 +47,17 @@ void Context::Init() {
   if (rel != 0) {
     std::cerr << "server error code: " << rel << std::endl;
   } else {
-    std::cout << get_server_reponse_data << std::endl;
+    CfgServer data;
+    if(!data.ParseFromString(get_server_reponse_data)){
+        std::cout << "protobuf data parse faild." << std::endl;
+        return;
+    }else{
+        std::cout << data.listenip() << " " << data.wsuri() << std::endl;
+        //   TODO 处理 getserver 数据
+    }
+
   }
-  //   TODO 处理 getserver 数据
+
 
   std::string apilist_repose_data;
   rel = NetHelper::RequestGet(_config.host, _config.port, SF_NET_ROUTE_APILIST,
@@ -56,9 +65,16 @@ void Context::Init() {
   if (rel != 0) {
     std::cerr << "server error code: " << rel << std::endl;
   } else {
-    std::cout << apilist_repose_data << std::endl;
+      CfgProtocolActions actions;
+      if(!actions.ParseFromString(apilist_repose_data)){
+          std::cout << "protobuf data parse faild." << std::endl;
+          return;
+      }else {
+          std::cout << actions.client().size() << std::endl;
+          // TODO 处理 apilist 数据
+      }
+
   }
-  // TODO 处理 apilist 数据
 }
 
 void Context::Login() {}
